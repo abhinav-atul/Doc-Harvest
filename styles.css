@@ -1,0 +1,350 @@
+/* ── Fonts ─────────────────────────────────────────── */
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 900;
+    src: url('fonts/orbitronFont/static/Orbitron-Black.woff') format('woff');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url('fonts/poppinsFont/Poppins-SemiBold.woff') format('woff');
+}
+
+/* ── Reset & Base ─────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 380px;
+    min-height: 520px;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background: #0f0f1a;
+    color: #e4e4ed;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+}
+
+/* ── Accent color ─────────────────────────────────── */
+.accent {
+    color: #6c63ff;
+}
+
+/* ── Custom scrollbar (Webkit) ────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ── Header bar (results state) ───────────────────── */
+#headerBar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #161627;
+    border-bottom: 1px solid #252540;
+}
+#headerBar h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+#fileCount {
+    font-size: 0.75rem;
+    color: #888;
+    background: #1e1e35;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* ── Hero section ─────────────────────────────────── */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px 32px;
+    text-align: center;
+    min-height: 480px;
+}
+#heroIcon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(108,99,255,0.05));
+    border: 1px solid rgba(108,99,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+#hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+#tagline {
+    font-size: 0.85rem;
+    color: #8a8aa3;
+    line-height: 1.5;
+    max-width: 280px;
+    margin-bottom: 36px;
+}
+#runScript {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    background: #6c63ff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(108,99,255,0.35);
+}
+#runScript:hover {
+    background: #5a52e0;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(108,99,255,0.45);
+}
+#runScript:active {
+    transform: translateY(0);
+}
+#hint {
+    margin-top: 16px;
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 0.3px;
+}
+
+/* ── Loading state ────────────────────────────────── */
+#loadingState {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
+    padding: 40px 32px;
+    text-align: center;
+}
+.spinner {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6c63ff;
+    animation: bounce 1.4s ease-in-out infinite;
+}
+.dot2 { animation-delay: 0.16s; }
+.dot3 { animation-delay: 0.32s; }
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+#loadingText {
+    font-size: 0.85rem;
+    color: #8a8aa3;
+    margin-bottom: 28px;
+}
+#cancel {
+    padding: 8px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #e4e4ed;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#cancel:hover {
+    background: rgba(255,70,70,0.1);
+    border-color: #e04;
+    color: #ff6b6b;
+}
+
+/* ── Results state ────────────────────────────────── */
+#resultsState {
+    display: none;
+    flex-direction: column;
+    min-height: 420px;
+}
+
+/* Toolbar */
+#toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #161627;
+    border-bottom: 1px solid #252540;
+}
+#selectAllLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #aaa;
+    cursor: pointer;
+    user-select: none;
+}
+#selectedCount {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* File list container */
+.titleBox {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 340px;
+    padding: 4px 0;
+}
+#titleList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#titleList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #ccccdd;
+    border-bottom: 1px solid #1a1a2e;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+#titleList li:hover {
+    background: #1a1a30;
+}
+#titleList li .file-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+#titleList li .file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Checkboxes ───────────────────────────────────── */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+input[type="checkbox"]:hover {
+    border-color: #6c63ff;
+}
+input[type="checkbox"]:checked {
+    background: #6c63ff;
+    border-color: #6c63ff;
+}
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* ── Bottom bar ───────────────────────────────────── */
+#bottomBar {
+    display: flex;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #161627;
+    border-top: 1px solid #252540;
+}
+#cancel2 {
+    flex: 1;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #999;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#cancel2:hover {
+    background: rgba(255,70,70,0.1);
+    border-color: #e04;
+    color: #ff6b6b;
+}
+#dwnbtn {
+    flex: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: #6c63ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(108,99,255,0.3);
+}
+#dwnbtn:hover {
+    background: #5a52e0;
+    box-shadow: 0 6px 20px rgba(108,99,255,0.4);
+}
+
+/* ── Footer ───────────────────────────────────────── */
+#footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: 0.3px;
+}
+#footer strong {
+    color: #6c63ff;
+}
