@@ -35,7 +35,9 @@ DocHarvest/
 ├── content.js             # Popup logic and Chrome extension interactions
 ├── background.js          # Injected page scraper / auto-scroll logic
 ├── assets/                # Extension icon and file-type images
-│   ├── logo.png           # Extension icon
+│   ├── icon16.png         # 16x16 Extension Icon
+│   ├── icon48.png         # 48x48 Extension Icon
+│   ├── icon128.png        # 128x128 Extension Icon
 │   ├── excelFile.png
 │   ├── wordFile.png
 │   ├── pdfFile.png
